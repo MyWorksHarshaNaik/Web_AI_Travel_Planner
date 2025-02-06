@@ -1,0 +1,47 @@
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import {RouterProvider, createBrowserRouter } from 'react-router-dom'
+import CreateTrip from './create-trip'
+import Header from './components/custom/Header'
+import { Toaster } from './components/ui/toaster'
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import Viewtrip from './view-trip/[tripId]'
+import MyTrips from './my-trips'
+import Layout from './Layout'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,  // Wrap all routes with Layout
+    children: [
+      {
+        path: '/',
+        element: <App />  // App shows Hero component
+      },
+      {
+        path: '/create-trip',
+        element: <CreateTrip />
+      },
+      {
+        path: '/my-trips',
+        element: <MyTrips />
+      },
+      {
+        path: '/my-trips/view-trip/:tripId',
+        element: <Viewtrip />
+      }
+    ]
+  }
+]);
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_AUTH_CLIENT_ID}>
+      {/* <Header/> */}
+      <Toaster/>
+      <RouterProvider router = {router}/>
+    </GoogleOAuthProvider>
+  </StrictMode>,
+)
