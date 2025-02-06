@@ -25,7 +25,7 @@ function UserTripCardItem({trip}) {
 */
 
   return (
-    <Link to={'view-trip/'+trip?.id}>
+    <Link to={`/view-trip/${trip?.id}`}>
     <div className='border-black shadow-xl hover:scale-105 transition-all'>
         <img /*{src=photoUrl?photoUrl:'/island.jpg' }*/ 
         src='/island.jpg' 

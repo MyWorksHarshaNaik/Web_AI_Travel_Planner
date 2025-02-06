@@ -16,7 +16,7 @@ import {
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
-import { Link } from "react-router-dom";
+
 
 
 
@@ -60,11 +60,9 @@ function Header() {
 
   return (
     <div className="p-3 shadow-sm flex justify-between items-center">
-      <Link to='/'>
       <img src="/logo.svg" 
         alt="Logo" 
         style={{ cursor: "pointer" }} />
-      </Link>
       <div>{user ? 
         <div className='flex items-center gap-3'>
           <a href='/create-trip'>

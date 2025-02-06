@@ -9,37 +9,30 @@ import { Toaster } from './components/ui/toaster'
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import Viewtrip from './view-trip/[tripId]'
 import MyTrips from './my-trips'
-import Layout from './Layout'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />,  // Wrap all routes with Layout
-    children: [
-      {
-        path: '/',
-        element: <App />  // App shows Hero component
-      },
-      {
-        path: '/create-trip',
-        element: <CreateTrip />
-      },
-      {
-        path: '/my-trips',
-        element: <MyTrips />
-      },
-      {
-        path: '/my-trips/view-trip/:tripId',
-        element: <Viewtrip />
-      }
-    ]
+    element: <App/>
+  },
+  {
+    path: '/create-trip',
+    element: <CreateTrip/>
+  },
+  {
+    path: '/view-trip/:tripId',
+    element: <Viewtrip/>
+  },
+  {
+    path: '/my-trips',
+    element: <MyTrips/>
   }
-]);
+])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_AUTH_CLIENT_ID}>
-      {/* <Header/> */}
+      <Header/>
       <Toaster/>
       <RouterProvider router = {router}/>
     </GoogleOAuthProvider>
