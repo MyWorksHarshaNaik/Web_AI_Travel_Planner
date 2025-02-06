@@ -28,6 +28,13 @@ VITE_GOOGLE_GEMINI_API_KEY = "gemini_api"
 VITE_GOOGLE_AUTH_CLIENT_ID = "auth_client_id"
 ```
 
+- Overview:
+![Alt text](images/landing_page.png)
+![Alt text](images/create_plan1.png)
+![Alt text](images/create_plan2.png)
+![Alt text](images/my_trip.png)
+
+
 - In this project I have not used the `Google Place API` so, make sure you use it and I have added static images in the place of `google api images`.
 
 - If you have `Google Place API` use tha one and uncomment the code which are commented.
